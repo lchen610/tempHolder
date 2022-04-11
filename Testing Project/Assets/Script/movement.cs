@@ -18,11 +18,23 @@ public class movement : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
     public float x;
+
+    public static int playerHP;
+    public static int playerDMG = 1;
+    public static bool isGameOver;
+
+    public healthBarController healthBarController;
+    public int maxHp = 100;
+
+    public static bool isDmgMotion = false;
  
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        isGameOver = false;
+        healthBarController.SetMax(100);
+        playerHP = maxHp;
     }
 
     // Update is called once per frame
@@ -71,14 +83,57 @@ public class movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             animator.SetTrigger("attack");
+            isDmgMotion = true;
         }
         else
         {
             animator.SetBool("attack", false);
+            isDmgMotion = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            animator.SetTrigger("combo");
+            isDmgMotion = true;
+        }
+     
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("combo"))
+        {
+            animator.SetBool("combo", false);
+            isDmgMotion = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            animator.SetTrigger("spin");
+            isDmgMotion = true;
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("spin"))
+        {
+            animator.SetBool("spin", false);
+            isDmgMotion = false;
         }
 
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
+    //positive damage and negative healing
+    public void TakeDamage(int damage)
+    {
+        playerHP -= damage;
+        if (playerHP < 0)
+        {
+            playerHP = 0;
+        }
+        healthBarController.SetHealth(playerHP);
+        if (playerHP <= 0)
+        {
+            isGameOver = true;
+        }
+
+    }
+
 }

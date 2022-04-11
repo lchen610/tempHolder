@@ -1,19 +1,24 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/movement.cs">
+﻿<Properties StartupConfiguration="{89604D64-BB85-02EB-9724-79988FBFDA3B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/healthBarController.cs">
     <Files>
-      <File FileName="Assets/Script/movement.cs" Line="40" Column="10" />
+      <File FileName="Assets/Script/cameraControl.cs" Line="18" Column="1" />
+      <File FileName="Assets/Script/movement.cs" Line="140" Column="1" />
+      <File FileName="Assets/Script/dmgZone.cs" Line="22" Column="63" />
+      <File FileName="Assets/healthBarController.cs" Line="10" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Testing Project" expanded="True" selected="True" />
+          <Node name="Testing Project" expanded="True" selected="True">
+            <Node name="Assets" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="91c95fc7-8f0b-4182-bc0f-763a015a129d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a9e0c248-547a-44a0-ae18-d905a87fa7a2" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
