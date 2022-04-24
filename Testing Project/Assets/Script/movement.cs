@@ -23,6 +23,9 @@ public class movement : MonoBehaviour
     public static int playerDMG = 1;
     public static bool isGameOver;
 
+    float ab1 = 0;
+    float ab2 = 0;
+
     public healthBarController healthBarController;
     public int maxHp = 100;
 
@@ -91,11 +94,16 @@ public class movement : MonoBehaviour
             isDmgMotion = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (ab1 <= 0)
         {
-            animator.SetTrigger("combo");
-            isDmgMotion = true;
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                animator.SetTrigger("combo");
+                isDmgMotion = true;
+                ab1 = 5;
+            }
         }
+        
      
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("combo"))
         {
@@ -103,11 +111,16 @@ public class movement : MonoBehaviour
             isDmgMotion = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (ab2 <= 0)
         {
-            animator.SetTrigger("spin");
-            isDmgMotion = true;
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                animator.SetTrigger("spin");
+                isDmgMotion = true;
+                ab2 = 5;
+            }
         }
+
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("spin"))
         {
@@ -115,7 +128,8 @@ public class movement : MonoBehaviour
             isDmgMotion = false;
         }
 
-
+        ab1 -= Time.deltaTime;
+        ab2 -= Time.deltaTime;
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }

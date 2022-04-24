@@ -54,9 +54,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets/Script/movement.cs" />
-    <Compile Include="Assets/Script/cameraControl.cs" />
     <Compile Include="Assets/Script/dmgZone.cs" />
+    <Compile Include="Assets/Script/cameraControl.cs" />
     <Compile Include="Assets/Script/healthBarController.cs" />
+    <Compile Include="Assets/Script/mainSound.cs" />
+    <Compile Include="Assets/ability.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
